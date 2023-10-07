@@ -21,7 +21,7 @@ pip install einops==0.4.1
 
 - Data will be released soon.
 - Download the dataset.
-- Place the dataset folder to `/RtoM/dataset/`.
+- Place the dataset folder to `/dataset/`.
 
 ```shell
 ├─dataset
