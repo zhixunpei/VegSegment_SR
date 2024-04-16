@@ -1,8 +1,8 @@
 from data import TrainDataset, ValidDataset
-from model import MST_Plus_Plus
+from model_attn import SR_Attn
+from model_cnn import SR_CNN
 from utils import Loss_MRAE, Loss_RMSE, Loss_PSNR, AverageMeter, initialize_logger, time2file_name, save_checkpoint, T_Loss_PSNR, T_Loss_SSIM, outi
-from other_model import AWAN, HRNET, HSCNN_Plus, MIRNet, HDNet, MPRNet
-from other_model import MST_o, MPRNet_o, HSCNN_Plus_o, HDNet_o, HRNET_o
+
 
 import torch
 import torch.backends.cudnn as cudnn
@@ -12,27 +12,13 @@ import os
 
 def create_model(name):
 
-    if name == 'mst++':
-        model = MST_Plus_Plus(in_channels=3, out_channels=4, n_feat=4)
-    elif name == 'hrnet':
-        model = HRNET.SGN() # 31689284 final // batch_size = 1
-    elif name == 'hscnn_plus':
-        model = HSCNN_Plus.HSCNN_Plus() # 299584 final // batch_size = 2
-    elif name == 'hdnet':
-        model = HDNet.HDNet() # 2647552 final
-    elif name == 'mprnet':
-        model = MPRNet.MPRNet() # 60349 final
+    if name == 'attn':
+        model = SR_Attn(in_channels=3, out_channels=4, n_feat=4)
 
-    elif name == 'mprnet_o':
-        model = MPRNet_o.MPRNet() # 60349 final
-    elif name == 'hscnn_plus_o':
-        model = HSCNN_Plus_o.HSCNN_Plus() # 60349 final
-    elif name == 'hdnet_o':
-        model = HDNet_o.HDNet() # 60349 final
-    elif name == 'hrnet_o':
-        model = HRNET_o.SGN() # 60349 final
-    elif name == 'mst_o':
-        model = MST_o.MST_Plus_Plus() # 60349 final
+    elif name == 'cnn':
+        model = SR_CNN()
+
+
     else:
         print(f'Method {name} is not defined !!!!')
 
@@ -174,7 +160,7 @@ def parse_args():
     parser.add_argument("--init_lr", type=float, default=4e-4, help="initial learning rate")
     parser.add_argument("--outf", type=str, default='./log/', help='path log files')
     parser.add_argument("--data_root", type=str, default='./dataset/')
-    parser.add_argument("--model_name", type=str, default='mst_o', help='model name')
+    parser.add_argument("--model_name", type=str, default='attn', help='model name')
 
     args = parser.parse_args()
 

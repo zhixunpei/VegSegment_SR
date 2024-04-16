@@ -8,12 +8,6 @@ import cv2
 
 __all__ = ['SegmentationMetric']
 
-"""
-confusionMetric  # 注意：此处横着代表预测值，竖着代表真实值，与之前介绍的相反
-P\L     P    N
-P      TP    FP
-N      FN    TN
-"""
 
 
 class SegmentationMetric(object):
@@ -79,18 +73,9 @@ if __name__ == '__main__':
 
 
 
-        metric = SegmentationMetric(2)  # 类别数
+        metric = SegmentationMetric(2)  # num of class
 
 
-        # imgPredict = np.array([[0,1,2,2],
-        #                        [0,1,2,2],
-        #                        [0,1,2,2],
-        #                        [0,1,2,2]])  # 可直接换成预测图片
-        #
-        # imgLabel = np.array([[0,1,2,2],
-        #                      [1,2,0,0],
-        #                      [0,1,2,2],
-        #                      [0,1,2,2]])  # 可直接换成标注图片
 
         imgPredict = cv2.imread("./1.png")
         imgPredict = np.transpose(imgPredict, [2, 0, 1])  # uint8 (3, 340, 340)
@@ -108,7 +93,7 @@ if __name__ == '__main__':
         metric.addBatch(imgPredict, imgLabel)
 
         print('ConfusionMatrix :')
-        print(metric.confusionMatrix)  # numpy.transpose() 矩阵转置
+        print(metric.confusionMatrix)  # numpy.transpose()
 
         print('Add:')
         print(numpy.sum(metric.confusionMatrix, axis=0))
@@ -124,27 +109,8 @@ if __name__ == '__main__':
         mIoU = metric.meanIntersectionOverUnion()
         print('pa is : %f' % pa)
 
-        print('cpa is :')  # 列表
+        print('cpa is :')
         print(cpa)
 
         print('mpa is : %f' % mpa)
         print('mIoU is : %f' % mIoU)
-
-
-
-
-
-
-
-
-#           GT
-#       0  1  2  3
-#    0[[2. 1. 0. 0.]
-#    1 [0. 2. 0. 0.]
-# P  2 [0. 0. 2. 0.]
-#    3 [0. 0. 1. 1.]]
-# pa is : 0.777778
-# cpa is :
-# [1.         0.66666667 0.66666667 1.        ]
-# mpa is : 0.833333
-# mIoU is : 0.625000
