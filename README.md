@@ -1,5 +1,5 @@
 # VegSegment_SR
-*Phenotype segmentation method based on spectral reconstruction for UAV field vegetation*
+*A vegetation segmentation method based on spectral reconstruction for UAV field images*
 
 # Env
 
