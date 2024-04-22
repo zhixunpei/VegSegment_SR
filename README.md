@@ -65,4 +65,4 @@ pip install einops==0.4.1
 
 We have created a website for users to learn more about the project.
 
-You can click [here]( [sr-seg.samlab.cn](javascript:;) ) for more information.
+You can click [here][http://sr-seg.samlab.cn/] for more information.
