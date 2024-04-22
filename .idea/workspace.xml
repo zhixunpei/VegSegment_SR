@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="62549d55-8be9-4fde-b8af-a7565aa656c0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/batch_predict.py" beforeDir="false" afterPath="$PROJECT_DIR$/batch_predict.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/batch_predict_single.py" beforeDir="false" afterPath="$PROJECT_DIR$/batch_predict_single.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/predict.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +42,7 @@
       <workItem from="1713276936562" duration="612000" />
       <workItem from="1713411279473" duration="620000" />
       <workItem from="1713757794210" duration="176000" />
+      <workItem from="1713758196883" duration="333000" />
     </task>
     <servers />
   </component>
