@@ -2,8 +2,8 @@ import torch
 import cv2
 import os
 import numpy as np
-from model import MST_Plus_Plus
-from other_model import AWAN, HRNET, HSCNN_Plus, MIRNet, HDNet, MPRNet
+from model_attn import SR_Attn
+from model_cnn import SR_CNN
 from utils import outi
 from exp import outi_pers
 from PIL import Image
@@ -13,16 +13,14 @@ from utils import initialize_logger
 
 
 def create_model(name):
-    if name == 'MST++':
-        model = MST_Plus_Plus(in_channels=3, out_channels=4, n_feat=4)
-    elif name == 'HRnet':
-        model = HRNET.SGN()  # 31689284 final // batch_size = 1
-    elif name == 'HSCNN++':
-        model = HSCNN_Plus.HSCNN_Plus()  # 299584 final // batch_size = 2
-    elif name == 'HDnet':
-        model = HDNet.HDNet()  # 2647552 final
-    elif name == 'MPRnet':
-        model = MPRNet.MPRNet()  # 60349 final
+
+    if name == 'attn':
+        model = SR_Attn(in_channels=3, out_channels=4, n_feat=4)
+
+    elif name == 'cnn':
+        model = SR_CNN()
+
+
     else:
         print(f'Method {name} is not defined !!!!')
 
@@ -36,8 +34,7 @@ def parse_args():
     # parser.add_argument("--outf", type=str, default='./res/single/HDnet/005/', help='path MSI files')
     parser.add_argument('--rgb_dir', type=str, default='./pred/single/Val_RGB')
 
-    # model_name : MST++  HRnet  HSCNN++  HDnet MPRnet
-    parser.add_argument("--model_name", type=str, default='MST++', help='model name')
+    parser.add_argument("--model_name", type=str, default='cnn', help='model name')
 
     args = parser.parse_args()
 
