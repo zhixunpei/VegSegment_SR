@@ -1,5 +1,5 @@
 # VegSegment_SR
-Segmenting Vegetation from UAV Imagery via Reconstructing Connections between Spectral Information and Field Phenotype
+Segmenting Vegetation from UAV Images via Spectral Reconstruction in Complex Field Environments
 
 # Env
 
