@@ -170,7 +170,7 @@ def main(args, pretrained_model_path, outf):
 if __name__ == '__main__':
     args = parse_args()
 
-    pdm_path = './model_zoo/hscnn+_10epoch.pth'
+    pdm_path = './model_zoo/cnn_10epoch.pth'
     outf = './hy_seg1/'
 
     if not os.path.exists(outf):
